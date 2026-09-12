@@ -1,16 +1,31 @@
 # Vertical Slabs Mod
 
-This mod loads all existing vanilla slab blocks and registers a vertical slab version of them.
+Ever wanted to build walls without full blocks? Vertical Slabs adds a vertical variant of **every vanilla slab** — discovered automatically, so any slab added by Minecraft gets its own vertical counterpart.
 
-Multi-loader: builds for **NeoForge** and **Fabric** on Minecraft 26.2 from a shared code base.
+Place them on the edge of a block to orient them freely, craft them the same way as regular slabs, and use them for trim, paneling, and detailed walls.
 
-## Project layout
+**Downloads:** [Modrinth](https://modrinth.com/project/vertical-slabs-mod) — available for **NeoForge** and **Fabric** on Minecraft 26.2.
+
+## Features
+
+- Vertical slab versions of all vanilla slab blocks
+- Generated automatically from each slab's own assets — always in sync with Minecraft
+- Works on both NeoForge and Fabric from one shared code base
+
+## Installation
+
+1. Download the latest jar from [Modrinth](https://modrinth.com/project/vertical-slabs-mod) for your loader (NeoForge or Fabric).
+2. Drop it into your `mods` folder — that's it.
+
+## For developers
+
+### Project layout
 
 - `common/` — loader-independent code (the vertical slab block, vanilla slab discovery), shared resources, and shared data generators
 - `neoforge/` — NeoForge mod (registration, `neoforge.mods.toml`)
 - `fabric/` — Fabric mod (registration, `fabric.mod.json`)
 
-## Building
+### Building
 
 Requires a Java 25+ JDK (Gradle toolchains auto-download JDK 25 for compilation).
 
@@ -20,7 +35,7 @@ Requires a Java 25+ JDK (Gradle toolchains auto-download JDK 25 for compilation)
 ./gradlew :fabric:build        # Fabric jar   -> fabric/build/libs
 ```
 
-## Regenerating data and assets
+### Regenerating data and assets
 
 When Minecraft adds new slabs, regenerate everything:
 
@@ -41,7 +56,7 @@ Blockstates, models and item definitions are generated natively by the shared
 derives the textures from each vanilla slab's own assets — no manual texture
 map required.
 
-## Run the game
+### Run the game
 
 ```
 ./gradlew :neoforge:runClient
@@ -54,4 +69,4 @@ Distributed under the [MIT License](LICENSE.md).
 
 ## Authors
 
-- [Low Earth Orbit](https://github.com/LowEarthOrbit)
+- [Low Earth Orbit](https://github.com/lowearthorbit-dev)
