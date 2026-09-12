@@ -1,23 +1,48 @@
-
 # Vertical Slabs Mod
 
-This mod is supposed to load all existing slab blocks and generate a vertical slab version of them.
+This mod loads all existing vanilla slab blocks and registers a vertical slab version of them.
 
+Multi-loader: builds for **NeoForge** and **Fabric** on Minecraft 26.2 from a shared code base.
 
-## Installation
+## Project layout
 
-You can download the mod file [here](https://github.com/Brainterminator/vertical_slabs_mod/releases/download/0.1.1/verticalslabs-0.1.1.jar)
+- `common/` — loader-independent code (the vertical slab block, vanilla slab discovery) and shared resources plus generated JSON data
+- `neoforge/` — NeoForge mod (registration, datagen, `neoforge.mods.toml`)
+- `fabric/` — Fabric mod (registration, `fabric.mod.json`)
+- `scripts/` — asset generation helper (blockstates/models) and the slab-to-texture map
 
-## Deployment
+## Building
 
-To setup the project in gradle make sure to run the runData task first. Due to the way the blockstate and model files are generated it is required to run the runClient task two times. At the first time you need to uncomment the line:
+Requires a Java 25+ JDK (Gradle toolchains auto-download JDK 25 for compilation).
 
-BlockStateAndModelGenerator.registerBlockStatesAndModels();
+```
+./gradlew build                # builds all modules
+./gradlew :neoforge:build      # NeoForge jar -> neoforge/build/libs
+./gradlew :fabric:build        # Fabric jar   -> fabric/build/libs
+```
 
-in the VerticalSlabs class. This will ensure all the files are generated on the first run. Turn it back to commented to speed up the client startup process. The file generation has only been tested in a default IntelliJ environment, paths might need to be adjusted  to work in other environments.
+## Regenerating data and assets
 
+When Minecraft adds new slabs, regenerate everything:
+
+```
+./gradlew :neoforge:runData        # client data (lang)
+./gradlew :neoforge:runDataServer  # server data (loot tables, recipes)
+python3 scripts/generate_assets.py # blockstates + models
+./gradlew build                     # rebuild jars with new assets
+```
+
+If a new slab is missing from `scripts/slab_textures.json`, update that file
+(it maps each vanilla slab base name to the `side` texture used by vanilla's
+own slab model).
+
+## Run the game
+
+```
+./gradlew :neoforge:runClient
+./gradlew :fabric:runClient
+```
 
 ## Authors
 
 - [@Brainterminator](https://github.com/Brainterminator)
-

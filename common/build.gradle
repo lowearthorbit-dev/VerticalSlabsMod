@@ -1,0 +1,9 @@
+// Common module: loader-independent code compiled against vanilla Minecraft.
+
+plugins {
+    id 'java-library'
+}
+
+// Dependencies on vanilla Minecraft are provided by the loader-specific projects;
+// the common project only needs the classes at compile time from the loader projects.
+// Both loader subprojects compile this source set in as an additional source set.

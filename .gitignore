@@ -24,4 +24,13 @@ run
 # Files from Forge MDK
 forge*changelog.txt
 /run-data/
-/src/generated/
+
+# game run directories
+/*/run/
+/*/run-data/
+
+# datagen cache
+**/.cache/
+
+# generated folders
+**/generated/
