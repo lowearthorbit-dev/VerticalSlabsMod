@@ -6,10 +6,9 @@ Multi-loader: builds for **NeoForge** and **Fabric** on Minecraft 26.2 from a sh
 
 ## Project layout
 
-- `common/` — loader-independent code (the vertical slab block, vanilla slab discovery) and shared resources plus generated JSON data
-- `neoforge/` — NeoForge mod (registration, datagen, `neoforge.mods.toml`)
+- `common/` — loader-independent code (the vertical slab block, vanilla slab discovery), shared resources, and shared data generators
+- `neoforge/` — NeoForge mod (registration, `neoforge.mods.toml`)
 - `fabric/` — Fabric mod (registration, `fabric.mod.json`)
-- `scripts/` — asset generation helper (blockstates/models) and the slab-to-texture map
 
 ## Building
 
@@ -26,15 +25,21 @@ Requires a Java 25+ JDK (Gradle toolchains auto-download JDK 25 for compilation)
 When Minecraft adds new slabs, regenerate everything:
 
 ```
-./gradlew :neoforge:runData        # client data (lang)
+./gradlew :neoforge:runData        # client data (lang, blockstates, models, item definitions)
 ./gradlew :neoforge:runDataServer  # server data (loot tables, recipes)
-python3 scripts/generate_assets.py # blockstates + models
-./gradlew build                     # rebuild jars with new assets
+./gradlew build                    # rebuild jars with new data
 ```
 
-If a new slab is missing from `scripts/slab_textures.json`, update that file
-(it maps each vanilla slab base name to the `side` texture used by vanilla's
-own slab model).
+Alternatively, Fabric can run the same generation:
+
+```
+./gradlew :fabric:runDatagen
+```
+
+Blockstates, models and item definitions are generated natively by the shared
+`VerticalSlabAssetProvider` (in `common/src/main/java/.../datagen/`), which
+derives the textures from each vanilla slab's own assets — no manual texture
+map required.
 
 ## Run the game
 

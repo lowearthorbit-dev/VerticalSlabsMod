@@ -1,6 +1,9 @@
 package com.brainterminator.verticalslabs.neoforge.datagen;
 
 import com.brainterminator.verticalslabs.VerticalSlabs;
+import com.brainterminator.verticalslabs.datagen.ModLootTableProvider;
+import com.brainterminator.verticalslabs.datagen.ModRecipeProvider;
+import com.brainterminator.verticalslabs.datagen.VerticalSlabAssetProvider;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -10,13 +13,16 @@ public class DataGen {
     @SubscribeEvent
     public static void gatherServerData(GatherDataEvent.Server event) {
         event.addProvider(ModLootTableProvider.create(
-                event.getGenerator().getPackOutput(), event.getLookupProvider()));
+                event.getGenerator().getPackOutput(), event.getLookupProvider(),
+                NeoForgeBlockLootTables::new));
         event.addProvider(new ModRecipeProvider.Runner(
                 event.getGenerator().getPackOutput(), event.getLookupProvider()));
     }
 
     @SubscribeEvent
     public static void gatherClientData(GatherDataEvent.Client event) {
+        event.addProvider(new VerticalSlabAssetProvider(
+                event.getGenerator().getPackOutput()));
         event.addProvider(new EnglishLangProvider(
                 event.getGenerator().getPackOutput()));
     }

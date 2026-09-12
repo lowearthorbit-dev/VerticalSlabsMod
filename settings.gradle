@@ -22,6 +22,5 @@ plugins {
 
 rootProject.name = 'verticalslabs'
 
-include 'common'
 include 'neoforge'
 include 'fabric'

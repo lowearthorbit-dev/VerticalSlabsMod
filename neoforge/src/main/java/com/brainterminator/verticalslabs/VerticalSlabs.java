@@ -46,6 +46,7 @@ public class VerticalSlabs {
                 () -> BlockBehaviour.Properties.ofFullCopy(vanillaSlab));
         SLABS.add(block);
         SLAB_ITEMS.add(ITEMS.registerSimpleBlockItem(name, block));
+        VerticalSlabsCommon.addSlab(block);
     }
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> VERTICAL_SLABS_TAB =

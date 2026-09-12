@@ -2,6 +2,7 @@ package com.brainterminator.verticalslabs;
 
 import com.brainterminator.verticalslabs.blocks.VerticalSlabBlock;
 import com.brainterminator.verticalslabs.handler.VanillaSlabs;
+import com.brainterminator.verticalslabs.VerticalSlabsCommon;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -49,6 +50,7 @@ public class VerticalSlabs implements net.fabricmc.api.ModInitializer {
                 BlockBehaviour.Properties.ofFullCopy(vanillaSlab).setId(ResourceKey.create(Registries.BLOCK, blockId)));
         Registry.register(BuiltInRegistries.BLOCK, blockId, block);
         SLABS.add(block);
+        VerticalSlabsCommon.addSlab(() -> block);
 
         Identifier itemId = Identifier.fromNamespaceAndPath(MODID, name);
         BlockItem item = new BlockItem(block, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, itemId)));

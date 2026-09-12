@@ -1,6 +1,6 @@
-package com.brainterminator.verticalslabs.neoforge.datagen;
+package com.brainterminator.verticalslabs.datagen;
 
-import com.brainterminator.verticalslabs.VerticalSlabs;
+import com.brainterminator.verticalslabs.VerticalSlabsCommon;
 import com.brainterminator.verticalslabs.handler.VanillaSlabs;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
@@ -14,7 +14,6 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
@@ -41,8 +40,8 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildRecipes() {
-        for (Block slab : VerticalSlabs.allSlabs()) {
+    public void buildRecipes() {
+        for (Block slab : VerticalSlabsCommon.allSlabs()) {
             verticalSlabRecipe(slab);
         }
     }
@@ -57,7 +56,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(original)
                 .unlockedBy(getHasName(original), has(original))
                 .save(this.output, ResourceKey.create(Registries.RECIPE,
-                        Identifier.fromNamespaceAndPath(VerticalSlabs.MODID,
+                        Identifier.fromNamespaceAndPath(VerticalSlabsCommon.MODID,
                                 BuiltInRegistries.BLOCK.getKey(slab).getPath())));
     }
 }
