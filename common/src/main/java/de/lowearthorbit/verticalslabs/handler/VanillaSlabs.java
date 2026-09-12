@@ -1,4 +1,4 @@
-package com.brainterminator.verticalslabs.handler;
+package de.lowearthorbit.verticalslabs.handler;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;

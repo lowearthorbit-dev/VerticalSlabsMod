@@ -1,7 +1,7 @@
-package com.brainterminator.verticalslabs;
+package de.lowearthorbit.verticalslabs;
 
-import com.brainterminator.verticalslabs.blocks.VerticalSlabBlock;
-import com.brainterminator.verticalslabs.handler.VanillaSlabs;
+import de.lowearthorbit.verticalslabs.blocks.VerticalSlabBlock;
+import de.lowearthorbit.verticalslabs.handler.VanillaSlabs;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;

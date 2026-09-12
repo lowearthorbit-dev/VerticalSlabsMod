@@ -1,7 +1,7 @@
-package com.brainterminator.verticalslabs.neoforge.datagen;
+package de.lowearthorbit.verticalslabs.neoforge.datagen;
 
-import com.brainterminator.verticalslabs.VerticalSlabsCommon;
-import com.brainterminator.verticalslabs.datagen.VerticalSlabLangData;
+import de.lowearthorbit.verticalslabs.VerticalSlabsCommon;
+import de.lowearthorbit.verticalslabs.datagen.VerticalSlabLangData;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 

@@ -1,4 +1,4 @@
-package com.brainterminator.verticalslabs.datagen;
+package de.lowearthorbit.verticalslabs.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

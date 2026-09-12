@@ -1,9 +1,9 @@
-package com.brainterminator.verticalslabs.neoforge.datagen;
+package de.lowearthorbit.verticalslabs.neoforge.datagen;
 
-import com.brainterminator.verticalslabs.VerticalSlabs;
-import com.brainterminator.verticalslabs.datagen.ModLootTableProvider;
-import com.brainterminator.verticalslabs.datagen.ModRecipeProvider;
-import com.brainterminator.verticalslabs.datagen.VerticalSlabAssetProvider;
+import de.lowearthorbit.verticalslabs.VerticalSlabs;
+import de.lowearthorbit.verticalslabs.datagen.ModLootTableProvider;
+import de.lowearthorbit.verticalslabs.datagen.ModRecipeProvider;
+import de.lowearthorbit.verticalslabs.datagen.VerticalSlabAssetProvider;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;

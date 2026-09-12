@@ -1,4 +1,4 @@
-package com.brainterminator.verticalslabs;
+package de.lowearthorbit.verticalslabs;
 
 import net.minecraft.world.level.block.Block;
 

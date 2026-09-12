@@ -1,6 +1,6 @@
-package com.brainterminator.verticalslabs.neoforge.datagen;
+package de.lowearthorbit.verticalslabs.neoforge.datagen;
 
-import com.brainterminator.verticalslabs.VerticalSlabsCommon;
+import de.lowearthorbit.verticalslabs.VerticalSlabsCommon;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlagSet;

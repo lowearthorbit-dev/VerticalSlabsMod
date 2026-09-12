@@ -1,4 +1,4 @@
-package com.brainterminator.verticalslabs.blocks;
+package de.lowearthorbit.verticalslabs.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

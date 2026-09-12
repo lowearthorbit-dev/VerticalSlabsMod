@@ -1,8 +1,8 @@
-package com.brainterminator.verticalslabs;
+package de.lowearthorbit.verticalslabs;
 
-import com.brainterminator.verticalslabs.blocks.VerticalSlabBlock;
-import com.brainterminator.verticalslabs.handler.VanillaSlabs;
-import com.brainterminator.verticalslabs.VerticalSlabsCommon;
+import de.lowearthorbit.verticalslabs.blocks.VerticalSlabBlock;
+import de.lowearthorbit.verticalslabs.handler.VanillaSlabs;
+import de.lowearthorbit.verticalslabs.VerticalSlabsCommon;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

@@ -11,10 +11,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.brainterminator.verticalslabs.VerticalSlabs"
+      "de.lowearthorbit.verticalslabs.VerticalSlabs"
     ],
     "fabric-datagen": [
-      "com.brainterminator.verticalslabs.VerticalSlabsDatagen"
+      "de.lowearthorbit.verticalslabs.VerticalSlabsDatagen"
     ]
   },
   "depends": {

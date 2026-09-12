@@ -48,6 +48,10 @@ map required.
 ./gradlew :fabric:runClient
 ```
 
+## License
+
+Distributed under the [MIT License](LICENSE.md).
+
 ## Authors
 
-- [@Brainterminator](https://github.com/Brainterminator)
+- [Low Earth Orbit](https://github.com/LowEarthOrbit)

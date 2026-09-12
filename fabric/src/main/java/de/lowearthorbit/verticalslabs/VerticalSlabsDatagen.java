@@ -1,9 +1,9 @@
-package com.brainterminator.verticalslabs;
+package de.lowearthorbit.verticalslabs;
 
-import com.brainterminator.verticalslabs.datagen.ModLootTableProvider;
-import com.brainterminator.verticalslabs.datagen.ModRecipeProvider;
-import com.brainterminator.verticalslabs.datagen.VerticalSlabAssetProvider;
-import com.brainterminator.verticalslabs.datagen.VerticalSlabLangData;
+import de.lowearthorbit.verticalslabs.datagen.ModLootTableProvider;
+import de.lowearthorbit.verticalslabs.datagen.ModRecipeProvider;
+import de.lowearthorbit.verticalslabs.datagen.VerticalSlabAssetProvider;
+import de.lowearthorbit.verticalslabs.datagen.VerticalSlabLangData;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;

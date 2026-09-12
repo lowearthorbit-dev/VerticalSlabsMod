@@ -1,6 +1,6 @@
-package com.brainterminator.verticalslabs;
+package de.lowearthorbit.verticalslabs;
 
-import com.brainterminator.verticalslabs.VerticalSlabsCommon;
+import de.lowearthorbit.verticalslabs.VerticalSlabsCommon;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;

@@ -1,7 +1,7 @@
-package com.brainterminator.verticalslabs.datagen;
+package de.lowearthorbit.verticalslabs.datagen;
 
-import com.brainterminator.verticalslabs.VerticalSlabsCommon;
-import com.brainterminator.verticalslabs.handler.VanillaSlabs;
+import de.lowearthorbit.verticalslabs.VerticalSlabsCommon;
+import de.lowearthorbit.verticalslabs.handler.VanillaSlabs;
 import net.minecraft.world.level.block.Block;
 
 import java.util.LinkedHashMap;

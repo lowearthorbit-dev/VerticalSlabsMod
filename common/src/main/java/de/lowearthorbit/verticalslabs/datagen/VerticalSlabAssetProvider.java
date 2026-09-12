@@ -1,7 +1,7 @@
-package com.brainterminator.verticalslabs.datagen;
+package de.lowearthorbit.verticalslabs.datagen;
 
-import com.brainterminator.verticalslabs.VerticalSlabsCommon;
-import com.brainterminator.verticalslabs.handler.VanillaSlabs;
+import de.lowearthorbit.verticalslabs.VerticalSlabsCommon;
+import de.lowearthorbit.verticalslabs.handler.VanillaSlabs;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
