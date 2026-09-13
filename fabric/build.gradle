@@ -1,0 +1,66 @@
+plugins {
+    id 'java-library'
+    id 'net.fabricmc.fabric-loom' version '1.18.0-alpha.21'
+}
+
+// Include the common source set so loader-independent code is compiled against Fabric's Minecraft artifact.
+sourceSets {
+    main {
+        java {
+            srcDir '../common/src/main/java'
+            srcDir '../common/src/datagen/java'
+        }
+        resources {
+            srcDir '../common/src/main/resources'
+            srcDir '../common/src/generated/resources'
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // No yarn mappings exist for 26.2; use official Mojang mappings like the other loader projects.
+    implementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+loom {
+    runs {
+        datagen {
+            inherit server
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file('../common/src/generated/resources')}"
+            vmArg "-Dfabric-api.datagen.modid=${project.mod_id}"
+
+            runDir "build/datagen"
+        }
+    }
+}
+
+processResources {
+    exclude '**/.cache/**'
+
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            loader_version         : fabric_loader_version,
+            fabric_api_version     : fabric_api_version,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching('fabric.mod.json') {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}

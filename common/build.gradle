@@ -1,0 +1,5 @@
+// Common module: loader-independent code compiled against vanilla Minecraft.
+
+plugins {
+    id 'java-library'
+}

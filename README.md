@@ -1,23 +1,72 @@
-
 # Vertical Slabs Mod
 
-This mod is supposed to load all existing slab blocks and generate a vertical slab version of them.
+Ever wanted to build walls without full blocks? Vertical Slabs adds a vertical variant of **every vanilla slab** — discovered automatically, so any slab added by Minecraft gets its own vertical counterpart.
 
+Place them on the edge of a block to orient them freely, craft them the same way as regular slabs, and use them for trim, paneling, and detailed walls.
+
+**Downloads:** [Modrinth](https://modrinth.com/project/vertical-slabs-mod) — available for **NeoForge** and **Fabric** on Minecraft 26.2.
+
+## Features
+
+- Vertical slab versions of all vanilla slab blocks
+- Generated automatically from each slab's own assets — always in sync with Minecraft
+- Works on both NeoForge and Fabric from one shared code base
 
 ## Installation
 
-You can download the mod file [here](https://github.com/Brainterminator/vertical_slabs_mod/releases/download/0.1.1/verticalslabs-0.1.1.jar)
+1. Download the latest jar from [Modrinth](https://modrinth.com/project/vertical-slabs-mod) for your loader (NeoForge or Fabric).
+2. Drop it into your `mods` folder — that's it.
 
-## Deployment
+## For developers
 
-To setup the project in gradle make sure to run the runData task first. Due to the way the blockstate and model files are generated it is required to run the runClient task two times. At the first time you need to uncomment the line:
+### Project layout
 
-BlockStateAndModelGenerator.registerBlockStatesAndModels();
+- `common/` — loader-independent code (the vertical slab block, vanilla slab discovery), shared resources, and shared data generators
+- `neoforge/` — NeoForge mod (registration, `neoforge.mods.toml`)
+- `fabric/` — Fabric mod (registration, `fabric.mod.json`)
 
-in the VerticalSlabs class. This will ensure all the files are generated on the first run. Turn it back to commented to speed up the client startup process. The file generation has only been tested in a default IntelliJ environment, paths might need to be adjusted  to work in other environments.
+### Building
 
+Requires a Java 25+ JDK (Gradle toolchains auto-download JDK 25 for compilation).
+
+```
+./gradlew build                # builds all modules
+./gradlew :neoforge:build      # NeoForge jar -> neoforge/build/libs
+./gradlew :fabric:build        # Fabric jar   -> fabric/build/libs
+```
+
+### Regenerating data and assets
+
+When Minecraft adds new slabs, regenerate everything:
+
+```
+./gradlew :neoforge:runData        # client data (lang, blockstates, models, item definitions)
+./gradlew :neoforge:runDataServer  # server data (loot tables, recipes)
+./gradlew build                    # rebuild jars with new data
+```
+
+Alternatively, Fabric can run the same generation:
+
+```
+./gradlew :fabric:runDatagen
+```
+
+Blockstates, models and item definitions are generated natively by the shared
+`VerticalSlabAssetProvider` (in `common/src/main/java/.../datagen/`), which
+derives the textures from each vanilla slab's own assets — no manual texture
+map required.
+
+### Run the game
+
+```
+./gradlew :neoforge:runClient
+./gradlew :fabric:runClient
+```
+
+## License
+
+Distributed under the [MIT License](LICENSE.md).
 
 ## Authors
 
-- [@Brainterminator](https://github.com/Brainterminator)
-
+- [Low Earth Orbit](https://github.com/lowearthorbit-dev)

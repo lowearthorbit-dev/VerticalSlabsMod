@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "license": "${mod_license}",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.lowearthorbit.verticalslabs.VerticalSlabs"
+    ],
+    "fabric-datagen": [
+      "de.lowearthorbit.verticalslabs.VerticalSlabsDatagen"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "~26.2",
+    "java": ">=25"
+  }
+}
